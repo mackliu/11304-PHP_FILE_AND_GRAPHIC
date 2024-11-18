@@ -45,7 +45,7 @@ if(isset($_FILES['filename'])){
         move_uploaded_file($_FILES['filename']['tmp_name'],"./files/".$filename);
         $desc=$_POST['desc'];
 
-        insert("imgs",['filename'=>$filename,'desc'=>$desc]);
+        save("imgs",['filename'=>$filename,'desc'=>$desc]);
 
     }else{
         echo "上傳失敗，請檢查檔案格式或是大小是否符合規定";

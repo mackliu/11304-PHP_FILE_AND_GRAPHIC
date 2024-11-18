@@ -13,7 +13,7 @@ if(isset($_FILES['filename'])){
         unlink("./files/".$row['filename']);
         $row['filename']=time() . $_FILES['filename']['name'];
         move_uploaded_file($_FILES['filename']['tmp_name'],"./files/".$row['filename']);
-        update('imgs',$row);
+        save('imgs',$row);
     }
 }
 

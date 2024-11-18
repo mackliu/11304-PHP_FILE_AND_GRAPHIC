@@ -80,6 +80,20 @@ function del($table ,$id){
     
 }
 
+
+/**
+ * 新增或更新資料
+ */
+function save($table,$array){
+    if(isset($array['id'])){
+        //update
+        update($table,$array);
+    }else{
+        //insert
+        insert($table,$array);
+    }
+}
+
 /**
  * 更新指定條件的資料
  * @param string $table 資料表名稱
