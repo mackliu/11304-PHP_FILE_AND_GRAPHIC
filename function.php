@@ -88,6 +88,24 @@ function del($table ,$id){
  * @return boolean
  */
 
+function update($table,$array){
+    $sql="update $table set ";
+    $pdo=$pdo=pdo(DBNAME);
+    $tmp=[];
+    if(isset($array['id'])){
+        $id=$array['id'];
+        unset($array['id']);
+
+        foreach($array as $key => $value){
+            $tmp[]="`$key`='$value'";
+        }
+
+        $sql=$sql . join(",",$tmp) . " where `id`='$id'";
+    }
+
+    return $pdo->exec($sql);
+}
+/* 
 function update($table,$array,$id){
     $sql="update $table set ";
     $pdo=$pdo=pdo(DBNAME);
@@ -109,9 +127,7 @@ function update($table,$array,$id){
     }
 
     return $pdo->exec($sql);
-
-
-}
+} */
 
 /**
  * 新增資料
