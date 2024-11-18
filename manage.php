@@ -41,7 +41,7 @@ dd($_FILES); */
 
 if(isset($_FILES['filename'])){
     if($_FILES['filename']['error']==0){
-        $filename=$_FILES['filename']['name'];
+        $filename=time() . $_FILES['filename']['name'];
         move_uploaded_file($_FILES['filename']['tmp_name'],"./files/".$filename);
         $desc=$_POST['desc'];
 
