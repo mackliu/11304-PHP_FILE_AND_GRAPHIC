@@ -16,13 +16,13 @@
      * 回傳值 :string
      */
 
-    function code(...$length)
+    function code($length=5)
     {
         // 定義一個包含所有可能字元的字元池
         $charPool = array_merge(range(0, 9), range('A', 'Z'), range('a', 'z'));
-
+        
         // 如果參數有指定長度，使用指定的長度，否則產生4到8之間的隨機長度
-        $length = $length[0] ?? rand(4, 8);
+        $length = $length ?? rand(4, 8);
 
         // 如果長度超過字元池長度，則報錯或調整為字元池的最大長度
         if ($length > count($charPool)) {
@@ -163,7 +163,7 @@
 
         //開啟輸出緩衝區(output buffer)
         ob_start();
-
+        
         //產生png格式的圖片，此時會先暫時存放在緩衝區中不送出去
         imagepng($dst_img);
 
