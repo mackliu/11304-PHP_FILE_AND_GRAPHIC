@@ -96,7 +96,7 @@ function getfile($path){
             
             $sql .=")";
 
-            if($count<=2){
+            if($count>46 && $count<49){
                 echo $sql;
                 echo "<br>";
 
@@ -111,6 +111,9 @@ function getfile($path){
 
     } catch(PDOException $e) {
         echo "Error creating table: " . $e->getMessage();
+        echo " <br> at data row $count";
+        echo "<br> $sql";
+
     }
 }
 
